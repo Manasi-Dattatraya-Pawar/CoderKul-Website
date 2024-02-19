@@ -1,0 +1,129 @@
+.blog-list {
+  margin: 50px;
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  /* This will create three columns */
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: stretch;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  /* Adjust the width based on the number of columns you want */
+}
+
+.blog-post h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #071952;
+}
+
+.blog-post p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #071952;
+}
+
+.blog-post button {
+  background-color: #00555b;
+  color: #fff;
+
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.blog-post button:hover {
+  background-color: #03747c;
+  color: hsl(180, 22%, 7%);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.icon-button svg {
+  margin-right: 5px;
+}
+
+.icon-button:hover {
+  color: hsl(180, 22%, 7%);
+  /* Change color on hover */
+}
+
+.icon-button:focus {
+  outline: none;
+}
+
+/* Optional: Adjust icon size */
+.icon {
+  font-size: 24px;
+  /* Adjust size as needed */
+  margin-right: 5px;
+  /* Adjust spacing as needed */
+}
+
+/* Optional: Style view count */
+.view-count {
+  font-size: 14px;
+  color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .blog-post {
+    margin-bottom: 20px;
+  }
+
+  .blog-post:last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-post h2 {
+    font-size: 1.2rem;
+  }
+
+  .blog-post p {
+    font-size: 0.9rem;
+  }
+
+  .blog-post button {
+    font-size: 0.8rem;
+  }
+
+  .icon-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-button {
+    margin-top: 10px;
+    /* Add spacing between buttons */
+  }
+}

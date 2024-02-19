@@ -1,0 +1,96 @@
+/* course.css */
+
+/* Common styles for course container and card */
+.course-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 50px;
+}
+
+.course-card {
+  background-color: #ffffff; /* White background */
+  line-height: 1.7;
+  border-radius: 10px;
+  box-shadow: 4px 8px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.course-card h2 {
+  color: #000000; /* Black text color */
+  font-size: 24px; /* Adjust font size */
+  margin-bottom: 5px; /* Add spacing below heading */
+}
+
+.course-card p {
+  color: #000000; /* Black text color */
+  font-size: 16px; /* Adjust font size */
+  line-height: 1.5; /* Adjust line height for better readability */
+  margin: 8px;
+}
+
+h3 {
+  margin: 15px;
+  color: #000000;
+}
+
+.course-card ul {
+  color: #000000; /* Black text color */
+  font-size: 16px; /* Adjust font size */
+  line-height: 1.7; /* Adjust line height for better readability */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px;
+}
+
+.course-card ul li {
+  color: #000000; /* Black text color */
+}
+
+/* Optional: Add hover effect */
+.course-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.course-card a {
+  display: block;
+  text-align: center;
+  margin: 15px;
+  padding: 8px 16px;
+  background-color: #00555b;
+  box-shadow: 2px 4px 2px 4px #072628;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.course-card a:hover {
+  background-color: #072628;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .course-card {
+    width: 90%; /* Adjust width for smaller screens */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+  
+  .course-card h2 {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+  
+  .course-card p {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  
+  .course-card ul {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}

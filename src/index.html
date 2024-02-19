@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Our courses in Java, C#, C, C++, frontend, and backend" />
+    <title>Welcome to Our Courses</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="main.js"></script>
+    <script>
+      // Add routing for Java and C# course pages
+      const path = window.location.pathname;
+      if (path === '/java') {
+        import('./Java').then(module => {
+          const Java = module.default;
+          ReactDOM.render(<Java />, document.getElementById('root'));
+        });
+      } else if (path === '/csharp') {
+        import('./CSharp').then(module => {
+          const CSharp = module.default;
+          ReactDOM.render(<CSharp />, document.getElementById('root'));
+        });
+      }
+    </script>
+  </body>
+</html>
