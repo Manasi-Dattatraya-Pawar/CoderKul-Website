@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import './ContactForm.css'; // Import CSS file for styling
-// import './server'; // Import server.js file to mock server
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function ContactForm() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validation for email and password
-    if (!email.includes('@') || password.length < 6) {
-      alert('Please enter a valid email and password (password should be at least 6 characters long)');
+    // Validation for email and message
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address');
       return;
     }
 
@@ -26,7 +22,7 @@ function ContactForm() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, message }),
       });
 
       if (response.ok) {
@@ -36,8 +32,8 @@ function ContactForm() {
         setTimeout(() => {
           setSubmitted(false);
           setEmail('');
-          setPassword('');
           setName('');
+          setMessage('');
         }, 1500);
       } else {
         // If there was an error
@@ -78,25 +74,18 @@ function ContactForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <div className="password-input-container">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              name="password"
-              placeholder="Your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <span className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
-              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-            </span>
-          </div>
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter Your Message"
+            rows="3"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          ></textarea>
         </div>
-        <div className="forgot-password">
-          <a href="/">Forgot Password?</a>
-        </div>
+        
         <button type="submit" className={`submit-button ${submitted ? 'submitting' : ''}`}>
           {submitted ? 'Submitting...' : 'Submit'}
         </button>
